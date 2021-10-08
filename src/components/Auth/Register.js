@@ -37,7 +37,7 @@ export const Register = (props) => {
                 .then(res => {
                     if ("token" in res) {
                         localStorage.setItem("daily_journal_token", res.token)
-                        history.push("/Login")
+                        history.push("/")
                     }
                 })
         } else {
