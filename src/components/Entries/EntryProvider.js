@@ -16,10 +16,24 @@ export const EntryProvider = (props) => {
         .then(setEntries)
     }
 
+    const createEntry = (entry) => {
+        return fetch("http://localhost:8000/journalentries", {
+            method:"POST",
+            headers: {
+                "Authorization": `Token ${localStorage.getItem("daily_journal_token")}`,
+                "Content-type": "apllication/json"
+            },
+            body: JSON.stringify(entry)
+        })
+        .then(res => res.json())
+        .then(getEntries)
+    }
+
     return (
         <EntryContext.Provider value={{
             entries,
             getEntries,
+            createEntry,
             }}>
             { props.children }
         </EntryContext.Provider>
