@@ -9,7 +9,7 @@ export const DailyJournal = () => (
     <>
       <Route
         render={() => {
-          if (localStorage.getItem("author_id")) {
+          if (localStorage.getItem("daily_journal_token")) {
             return (
               <>
                 {/* <NavBar /> */}
@@ -25,7 +25,7 @@ export const DailyJournal = () => (
       <Route
         path="/login"
         render={() => {
-          if (localStorage.getItem("author_id")) {
+          if (localStorage.getItem("daily_journal_token")) {
             return <Redirect to="/" />;
           } else {
             return <Login />;

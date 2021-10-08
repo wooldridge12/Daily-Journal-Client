@@ -6,11 +6,18 @@ import { EntryProvider } from "./Entries/EntryProvider"
 export const ApplicationViews = () => {
     return (
     <>
-       
+       <main
+        style={{
+          margin: "5rem 2rem",
+          lineHeight: "1.75rem",
+        }}
+      ></main>
         <EntryProvider>
-            <Route exact path="/Entries">
+            
+            <Route exact path="/">
                 <EntryList />
             </Route>
+
         </EntryProvider>
         
     </>

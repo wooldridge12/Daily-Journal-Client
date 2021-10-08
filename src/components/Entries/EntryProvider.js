@@ -17,11 +17,11 @@ export const EntryProvider = (props) => {
     }
 
     return (
-        <EntryContext value={{
+        <EntryContext.Provider value={{
             entries,
             getEntries,
             }}>
             { props.children }
-        </EntryContext>
+        </EntryContext.Provider>
     )
 }
