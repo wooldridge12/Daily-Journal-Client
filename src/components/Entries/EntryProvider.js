@@ -3,7 +3,8 @@ import React, { useState } from "react"
 export const EntryContext = React.createContext()
 
 export const EntryProvider = (props) => {
-    const [ entries, setEntries ] = useState([])
+    const [ entries, setEntries ] = useState([]);
+    const [ moods, setMoods ] = useState([]);
 
     const getEntries = () => {
         return fetch("http://localhost:8000/journalentries", {
@@ -29,10 +30,23 @@ export const EntryProvider = (props) => {
         .then(getEntries)
     }
 
+    const getMoods = () => {
+        return fetch("http://localhost:8000/moods", {
+            headers: {
+                "Authorization": `Token ${localStorage.getItem("daily_journal_token")}`,
+                "Content-type": "application/json"
+            }
+        })
+        .then(res => res.json())
+        .then(setMoods)
+    }
+
     return (
         <EntryContext.Provider value={{
             entries,
+            moods,
             getEntries,
+            getMoods,
             createEntry,
             }}>
             { props.children }

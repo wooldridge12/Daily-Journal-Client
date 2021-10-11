@@ -5,7 +5,7 @@ import "./EntryForm.css"
 
 export const EntryForm = () => {
     const history = useHistory()
-    const { createEntry } = useContext(EntryContext)
+    const { createEntry, getMoods, moods } = useContext(EntryContext)
 
     const [ currentEntry, setCurrentEntry ] = useState({
         concept: "",
@@ -14,9 +14,9 @@ export const EntryForm = () => {
         date: ""
     })
 
-    // useEffect(() => {
-    //     getMoods()
-    // }, [])
+    useEffect(() => {
+        getMoods()
+    }, [])
 
     const changeEntryConceptState = (event) => {
         const newEntryState = { ...currentEntry }
@@ -30,11 +30,11 @@ export const EntryForm = () => {
         setCurrentEntry(newEntryState)
     }
 
-    // const changeEntryMoodState = (event) => {
-    //     const newEntryState = { ...currentEntry }
-    //     newEntryState.mood = event.target.value
-    //     setCurrentEntry(newEntryState)
-    // }
+    const changeEntryMoodState = (event) => {
+        const newEntryState = { ...currentEntry }
+        newEntryState.mood = event.target.value
+        setCurrentEntry(newEntryState)
+    }
 
     const changeEntryDateState = (event) => {
         const newEntryState = { ...currentEntry }
@@ -47,7 +47,7 @@ export const EntryForm = () => {
             <fieldset>
                 <div className="form-group">
                     <label>Concept</label>
-                    <input type="text" name="concept" required auto focus className="form=control"
+                    <input type="text" name="concept" required autoFocus className="form=control"
                         value={currentEntry.concept}
                         onChange={changeEntryConceptState}
                     />
@@ -56,13 +56,13 @@ export const EntryForm = () => {
             <fieldset>
                 <div className="form-group">
                     <label>Entry</label>
-                    <input type="text" name="entry" required auto focus className="form=control"
+                    <input type="text" name="entry" required autoFocus className="form=control"
                         value={currentEntry.entry}
                         onChange={changeEntryEntryState}
                     />
                 </div>
             </fieldset>
-            {/* <fieldset>
+            <fieldset>
                 <div className="form-group">
                     <label>Mood</label>
                     <select name="mood" id="mood" onChange={changeEntryMoodState}>
@@ -74,11 +74,11 @@ export const EntryForm = () => {
                         }
                     </select>
                 </div>
-            </fieldset> */}
+            </fieldset>
             <fieldset>
                 <div className="form-group">
                     <label>Date</label>
-                    <input type="date" name="date" required auto focus className="form=control"
+                    <input type="date" name="date" required autoFocus className="form=control"
                         value={currentEntry.date}
                         onChange={changeEntryDateState}
                     />
@@ -91,7 +91,7 @@ export const EntryForm = () => {
                         const entryPost = {
                             concept: currentEntry.concept,
                             entry: currentEntry.entry,
-                            // mood: currentEntry.mood,
+                            mood: currentEntry.mood,
                             date: currentEntry.date
                         }
                         createEntry(entryPost)
