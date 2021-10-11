@@ -15,6 +15,10 @@ export const EntryList = () => {
         <article>
             <header> DAILY JOURNAL</header>
 
+            <button className="newEntry"
+                onClick={() => {
+                    history.push({pathname: "/entries/new"})
+                }}>New Note For Today</button>
             {
                 entries.map(entry => {
                     return (
@@ -26,6 +30,7 @@ export const EntryList = () => {
                         <div>{entry.mood.label}</div>
 
                         <div>{entry.date}</div>
+
 
                     </section>
                     )
