@@ -9,7 +9,7 @@ export const EntryProvider = (props) => {
         return fetch("http://localhost:8000/journalentries", {
             headers: {
                 "Authorization": `Token ${localStorage.getItem("daily_journal_token")}`,
-                "Content-type": "apllication/json"
+                "Content-type": "application/json"
             }
         })
         .then(res => res.json())
@@ -21,7 +21,7 @@ export const EntryProvider = (props) => {
             method:"POST",
             headers: {
                 "Authorization": `Token ${localStorage.getItem("daily_journal_token")}`,
-                "Content-type": "apllication/json"
+                "Content-type": "application/json"
             },
             body: JSON.stringify(entry)
         })
