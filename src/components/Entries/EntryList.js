@@ -5,7 +5,7 @@ import "./EntryList.css"
 
 export const EntryList = () => {
     const history = useHistory()
-    const { entries, getEntries } = useContext(EntryContext)
+    const { entries, getEntries, deleteEntry } = useContext(EntryContext)
 
     useEffect(() => {
         getEntries()
@@ -31,6 +31,7 @@ export const EntryList = () => {
 
                         <div>{entry.date}</div>
 
+                        <button className="deleteBtn" onClick={() => deleteEntry(entry.id)}>Delete</button>
 
                     </section>
                     )
