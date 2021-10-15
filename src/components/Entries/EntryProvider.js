@@ -30,6 +30,17 @@ export const EntryProvider = (props) => {
         .then(getEntries)
     }
 
+    const deleteEntry = (entryId) => {
+        return fetch(`http://localhost:8000/journalentries/${entryId}`, {
+            method: "DELETE",
+            headers: {
+                "Authorization": `Token ${localStorage.getItem("daily_journal_token")}`,
+                "Content-type": "application/json"
+            }
+        })
+        .then(getEntries)
+    }
+
     const getMoods = () => {
         return fetch("http://localhost:8000/moods", {
             headers: {
@@ -48,6 +59,7 @@ export const EntryProvider = (props) => {
             getEntries,
             getMoods,
             createEntry,
+            deleteEntry
             }}>
             { props.children }
         </EntryContext.Provider>
