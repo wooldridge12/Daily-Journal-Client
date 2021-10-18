@@ -4,3 +4,17 @@
     border-radius: 2rem;
     margin: 1%;
 }
+.spacer {
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+.areaTitle {
+    font-weight: bolder;
+    margin-bottom: 0.2%;
+}
+.entryDate {
+    margin-bottom: 1%;
+}
+article {
+    margin-left: 1%;
+}

@@ -23,13 +23,21 @@ export const EntryList = () => {
                 entries.map(entry => {
                     return (
                     <section key={`entry--${entry.id}`} className="single_entry">
+
+                        <div className="areaTitle">Concept</div>
                         <div>{entry.concept}</div>
+                        <div className="spacer">---------</div>
 
+                        <div className="areaTitle">Entry</div>
                         <div className="entry_entry">{entry.entry}</div>
+                        <div className="spacer">---------</div>
 
+                        <div className="areaTitle">Mood</div>
                         <div>{entry.mood.label}</div>
+                        <div className="spacer">---------</div>
 
-                        <div>{entry.date}</div>
+                        <div className="areaTitle">Date</div>
+                        <div className="entryDate">{entry.date}</div>
 
                         <button className="deleteBtn" onClick={() => deleteEntry(entry.id)}>Delete</button>
 
