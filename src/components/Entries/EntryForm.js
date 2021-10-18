@@ -43,6 +43,7 @@ export const EntryForm = () => {
     }
 
     return (
+        <div className="aligning">
         <form className="entryForm">
             <fieldset>
                 <div className="form-group">
@@ -56,7 +57,7 @@ export const EntryForm = () => {
             <fieldset>
                 <div className="form-group">
                     <label>Entry</label>
-                    <input type="text" name="entry" required autoFocus className="form=control"
+                    <textarea type="text" name="entry" required autoFocus className="form=control"
                         value={currentEntry.entry}
                         onChange={changeEntryEntryState}
                     />
@@ -84,7 +85,11 @@ export const EntryForm = () => {
                     />
                 </div>
             </fieldset>
-            <button type="submit" className="btn"
+            <button className="backBtn"
+                onClick={() => {
+                    history.push({pathname: "/"})
+                }}>Back</button>
+            <button type="submit" className="btn submitBtn"
                     onClick={evt => {
                         evt.preventDefault()
 
@@ -98,5 +103,6 @@ export const EntryForm = () => {
                             .then(() => history.push(`/`))
                     }}>Submit</button>
         </form>
+        </div>
     )
 }
