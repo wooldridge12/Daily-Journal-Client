@@ -1,0 +1,46 @@
+form {
+    margin: 5%;
+    text-align: center;
+}
+fieldset {
+    margin-top: 5%;
+    border: black solid 0.5rem;
+    border-radius: 2rem;
+}
+.submitBtn {
+    padding: 2%;
+    margin: 4%;
+    background-color: green;
+    color: aliceblue;
+    border-radius: 1rem;
+}
+.submitBtn:hover {
+    padding: 2%;
+    margin: 4%;
+    background-color: green;
+    color: aliceblue;
+    border: blue solid 0.4rem;
+    border-radius: 1rem;
+}
+.backBtn {
+    padding: 2%;
+    margin: 4%;
+    background-color: red;
+    color: aliceblue;
+    border-radius: 1rem;
+
+}
+.backBtn:hover {
+    padding: 2%;
+    margin: 4%;
+    background-color: red;
+    color: aliceblue;
+    border: blue solid 0.4rem;
+    border-radius: 1rem;
+}
+.form-group {
+    padding: 1%;
+}
+.aligning {
+    text-align: center;
+}
