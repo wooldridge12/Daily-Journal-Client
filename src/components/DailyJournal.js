@@ -12,7 +12,6 @@ export const DailyJournal = () => (
           if (localStorage.getItem("daily_journal_token")) {
             return (
               <>
-                {/* <NavBar /> */}
                 <ApplicationViews />
               </>
             );

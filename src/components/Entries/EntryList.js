@@ -13,7 +13,7 @@ export const EntryList = () => {
 
     return (
         <article>
-            <header> DAILY JOURNAL</header>
+            <header className="dailyJournal"> DAILY JOURNAL</header>
 
             <button className="newEntry"
                 onClick={() => {
